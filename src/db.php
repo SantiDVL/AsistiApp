@@ -1,0 +1,14 @@
+<?php
+// Devuelve la conexión a MySQL. Usa los datos de config.php.
+function conectar(): PDO {
+    static $pdo = null;
+    if ($pdo === null) {
+        $c = require __DIR__ . '/config.php';
+        $dsn = "mysql:host={$c['db_host']};dbname={$c['db_name']};charset=utf8mb4";
+        $pdo = new PDO($dsn, $c['db_user'], $c['db_pass'], [
+            PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+            PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
+        ]);
+    }
+    return $pdo;
+}
