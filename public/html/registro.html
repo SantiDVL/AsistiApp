@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Define la codificación para mostrar bien las letras y los acentos. -->
+    <meta charset="UTF-8">
+    <!-- Hace que la página se adapte al ancho de cada dispositivo. -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Título mostrado en la pestaña del navegador. -->
+    <title>Crear cuenta - AsistiApp</title>
+    <!-- Carga los estilos compartidos. -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<!-- Aplica el diseño de las pantallas de acceso. -->
+<body class="auth">
+    <!-- Tarjeta que contiene la presentación y el formulario de registro. -->
+    <div class="auth-card">
+        <!-- Nombre y mensaje de la aplicación. -->
+        <div class="auth-brand">
+            <div class="auth-logo">✓</div>
+            <h3>AsistiApp</h3>
+            <p>Toma asistencia en segundos</p>
+        </div>
+
+        <!-- Envía por POST los datos ingresados a procesar_registro.php. -->
+        <form class="auth-form" action="procesar_registro.php" method="post">
+            <h3>Crea tu cuenta</h3>
+
+            <!-- Campo obligatorio para el nombre de la persona. -->
+            <div class="field">
+                <label for="nombre">Nombre completo</label>
+                <input type="text" id="nombre" name="nombre" placeholder="María López" required>
+            </div>
+
+            <!-- Campo obligatorio para el correo electrónico. -->
+            <div class="field">
+                <label for="correo">Correo</label>
+                <input type="email" id="correo" name="correo" placeholder="maria@colegio.edu" required>
+            </div>
+
+            <!-- Campo opcional para indicar la institución. -->
+            <div class="field">
+                <label for="institucion">Institución</label>
+                <input type="text" id="institucion" name="institucion" placeholder="Colegio San Martín">
+            </div>
+
+            <!-- Campo obligatorio para crear una contraseña de al menos seis caracteres. -->
+            <div class="field">
+                <label for="password">Contraseña (mínimo 6 caracteres)</label>
+                <input type="password" id="password" name="password" placeholder="••••••••" required>
+            </div>
+
+            <!-- Envía el formulario para crear la cuenta. -->
+            <button class="btn btn-primary btn-block" style="margin-top:8px">Registrarme</button>
+            <!-- Enlace para las personas que ya tienen cuenta. -->
+            <p class="auth-link">¿Ya tenés cuenta? <a href="login.html">Iniciar sesión</a></p>
+        </form>
+    </div>
+</body>
+</html>
