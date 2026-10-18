@@ -1,0 +1,41 @@
+CREATE DATABASE IF NOT EXISTS asistiapp CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+USE asistiapp;
+
+CREATE TABLE usuarios (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(120) NOT NULL,
+  correo VARCHAR(150) NOT NULL UNIQUE,
+  institucion VARCHAR(150) NOT NULL DEFAULT '',
+  telefono VARCHAR(40) NOT NULL DEFAULT '',
+  password_hash VARCHAR(255) NOT NULL,
+  creado TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE cursos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  usuario_id INT NOT NULL,
+  nombre VARCHAR(120) NOT NULL,
+  materia VARCHAR(120) NOT NULL DEFAULT '',
+  institucion VARCHAR(150) NOT NULL DEFAULT '',
+  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
+);
+
+CREATE TABLE alumnos (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  curso_id INT NOT NULL,
+  nombre VARCHAR(120) NOT NULL,
+  dni VARCHAR(30) NOT NULL DEFAULT '',
+  correo_alumno VARCHAR(150) NOT NULL DEFAULT '',
+  FOREIGN KEY (curso_id) REFERENCES cursos(id) ON DELETE CASCADE
+);
+
+CREATE TABLE asistencias (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  alumno_id INT NOT NULL,
+  curso_id INT NOT NULL,
+  fecha DATE NOT NULL,
+  estado ENUM('presente','ausente') NOT NULL,
+  UNIQUE KEY uniq_alumno_fecha (alumno_id, fecha),
+  FOREIGN KEY (alumno_id) REFERENCES alumnos(id) ON DELETE CASCADE,
+  FOREIGN KEY (curso_id) REFERENCES cursos(id) ON DELETE CASCADE
+);
