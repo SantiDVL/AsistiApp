@@ -24,6 +24,8 @@ AsistiApp se encuentra en desarrollo. Las funcionalidades y características pue
 
 La aplicación cuenta con una interfaz moderna, minimalista y adaptable, con el objetivo de ofrecer una experiencia de usuario sencilla y accesible.
 
+FIGMA: https://www.figma.com/design/u1brVRjtvNSlJJEyicO50m/AsistIApp?node-id=0-1&t=TK5w4ryOzoYIZnrq-1
+
 ---
 
 Desarrollado como proyecto personal en el área de desarrollo de software.
